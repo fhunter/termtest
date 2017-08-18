@@ -1,0 +1,5 @@
+# Dependencies
+
+currently - libvncserver, ragel
+
+
