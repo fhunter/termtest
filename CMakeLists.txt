@@ -1,11 +1,18 @@
 cmake_minimum_required(VERSION 2.8)
 project(terminal_test)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/")
+include(ragel)
+
+ragel_gen(vt100)
+
 set(SOURCES
     main.cpp
+    ${CMAKE_BINARY_DIR}/vt100.cc
 )
 
 set(HEADERS
+    config.h
 )
 
 set(LIBRARIES
