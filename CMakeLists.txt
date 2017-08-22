@@ -27,5 +27,6 @@ set(LIBRARIES
 
 add_executable("vt340" ${SOURCES} ${HEADERS})
 target_link_libraries("vt340" ${LIBRARIES})
+target_include_directories("vt340" PRIVATE ${CMAKE_SOURCE_DIR})
 
 add_custom_target(docs doxygen Doxyfile WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} )
