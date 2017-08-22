@@ -1,9 +1,11 @@
 #include <rfb/rfb.h>
 #include "config.h"
+#include "terminalclass.hpp"
 
 int main(int argc, char** argv) {
     rfbScreenInfoPtr server=rfbGetScreen(&argc,argv,display_width,display_height,8,3,4);
-    server->frameBuffer=(char*)malloc(display_width*display_height*4);
+    TerminalClass terminal(display_width,display_height);
+    server->frameBuffer=terminal.getFrameBuffer();
     rfbInitServer(server);
     rfbRunEventLoop(server,-1,TRUE);
     while(1) {
@@ -11,7 +13,6 @@ int main(int argc, char** argv) {
         server->frameBuffer[random()%(display_width*display_height*4)]=random()%256;
         rfbMarkRectAsModified(server,0,0,display_width,display_height);
     };
-    free(server->frameBuffer);
     rfbScreenCleanup(server);
     return 0;
 }

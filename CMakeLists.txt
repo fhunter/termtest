@@ -10,8 +10,10 @@ set(SOURCES
     main.cpp
     fontclass.cpp
     glyphclass.cpp
+    terminalclass.cpp
     ${CMAKE_BINARY_DIR}/vt100.cc
     gohufont.c
+    fake.cpp
 )
 
 set(HEADERS
@@ -19,6 +21,7 @@ set(HEADERS
     font.h
     fontclass.hpp
     glyphclass.hpp
+    terminalclass.hpp
 )
 
 set(LIBRARIES
