@@ -8,11 +8,17 @@ ragel_gen(vt100)
 
 set(SOURCES
     main.cpp
+    fontclass.cpp
+    glyphclass.cpp
     ${CMAKE_BINARY_DIR}/vt100.cc
+    gohufont.c
 )
 
 set(HEADERS
     config.h
+    font.h
+    fontclass.hpp
+    glyphclass.hpp
 )
 
 set(LIBRARIES
